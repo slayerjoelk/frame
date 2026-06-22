@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frame — Home</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            background: '#570f44',
+            surface: '#931f74',
+            primary: '#e830b7',
+            accent: '#e830b7',
+            card: '#931f74',
+            muted: '#94A3B8',
+            text: '#F8FAFC',
+          },
+          animation: {
+            'fade-in': 'fadeIn 0.7s ease-out forwards',
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: '0', transform: 'translateY(8px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    .iphone-frame {
+      width: 390px;
+      height: 844px;
+      border-radius: 50px;
+      border: 12px solid #1f1f1f;
+      position: relative;
+      overflow: hidden;
+      background: #000;
+      box-shadow: 0 25px 60px -12px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255,255,255,0.06);
+    }
+    .dynamic-island {
+      position: absolute;
+      top: 11px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 96px;
+      height: 28px;
+      background: #000;
+      border-radius: 20px;
+      z-index: 60;
+    }
+    .home-indicator {
+      position: absolute;
+      bottom: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 134px;
+      height: 5px;
+      background: rgba(255, 255, 255, 0.25);
+      border-radius: 10px;
+      z-index: 60;
+    }
+  </style>
+</head>
+<body class="bg-neutral-950 min-h-screen flex items-center justify-center p-6">
+
+  <div class="iphone-frame">
+    <div class="dynamic-island"></div>
+
+    <div class="w-full h-full bg-background flex flex-col animate-fade-in relative">
+      
+      <!-- Status Bar -->
+      <div class="h-11 w-full flex items-end justify-between px-6 pb-1.5 text-text text-sm font-semibold z-50 select-none">
+        <span>9:41</span>
+        <div class="flex items-center gap-1.5">
+          <svg class="w-4 h-4 text-text" viewBox="0 0 24 24" fill="currentColor"><path d="M2 17h2V7H2v10zm4 2h2V5H6v14zm4 0h2V7h-2v12zm4-2h2V9h-2v8zm4-2h2v-4h-2v4z"/></svg>
+          <svg class="w-4 h-4 text-text" viewBox="0 0 24 24" fill="currentColor"><path d="M12 18c1.1 0 2.1-.2 3-.6l-7.4-7.4C7.2 11.9 7 12.9 7 14c0 3.3 2.7 6 6 6z" opacity=".3"/><path d="M5.7 7.1L4.3 5.7C2.5 7.5 1.4 9.9 1.1 12.5l2 .3c.3-2.1 1.2-4 2.6-5.7zm17.2 5.4l2-.3c-.3-2.6-1.4-5-3.2-6.8l-1.4 1.4c1.4 1.7 2.3 3.6 2.6 5.7zM12 4c-1.1 0-2.1.2-3 .6l7.4 7.4c.4-.9.6-1.9.6-3 0-3.3-2.7-6-6-6z" opacity=".3"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8z"/></svg>
+          <svg class="w-5 h-3 text-text" viewBox="0 0 24 12" fill="none"><rect x="1" y="1" width="20" height="10" rx="2.5" stroke="currentColor" stroke-width="1.5"/><rect x="2.5" y="2.5" width="15" height="7" rx="1.5" fill="currentColor"/><path d="M22.5 4v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+      </div>
+
+      <!-- Header: Category Pill -->
+      <div class="px-5 pt-3 pb-2 flex justify-center z-40">
+        <button class="bg-surface text-text pl-5 pr-4 py-2 rounded-full flex items-center gap-2 border border-white/10 shadow-lg active:scale-95 transition-transform">
+          <span class="font-semibold text-[15px] tracking-tight">Front Physique</span>
+          <svg class="w-4 h-4 text-muted mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+      </div>
+
+      <!-- Camera Viewfinder -->
+      <div class="flex-1 mx-4 mb-3 rounded-[32px] bg-black relative overflow-hidden border border-white/10 shadow-2xl">
+        <!-- Simulated Camera Feed -->
+        <div class="absolute inset-0 bg-gradient-to-b from-[#1a0b2e] via-[#2d1b3d] to-[#0f0518]"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.4)_100%)]"></div>
+
+        <!-- Rule of Thirds Grid -->
+        <div class="absolute inset-0 opacity-[0.15] pointer-events-none">
+          <div class="absolute top-1/3 left-0 right-0 h-px bg-white"></div>
+          <div class="absolute top-2/3 left-0 right-0 h-px bg-white"></div>
+          <div class="absolute left-1/3 top-0 bottom-0 w-px bg-white"></div>
+          <div class="absolute left-2/3 top-0 bottom-0 w-px bg-white"></div>
+        </div>
+
+        <!-- Center Focus Frame -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-44 h-60 border border-white/20 rounded-xl pointer-events-none">
+          <div class="absolute -top-0.5 left-4 right-4 h-0.5 bg-white/40"></div>
+          <div class="absolute -bottom-0.5 left-4 right-4 h-0.5 bg-white/40"></div>
+          <div class="absolute -left-0.5 top-4 bottom-4 w-0.5 bg-white/40"></div>
+          <div class="absolute -right-0.5 top-4 bottom-4 w-0.5 bg-white/40"></div>
+        </div>
+
+        <!-- Ghost Overlay: Previous Photo -->
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none" style="opacity: 0.4;">
+          <div class="w-[72%] h-[78%] relative flex items-center justify-center">
+            <svg viewBox="0 0 200 300" class="w-full h-full drop-shadow-[0_0_20px_rgba(232,48,183,0.25)]">
+              <defs>
+                <linearGradient id="ghostGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" style="stop-color:#e830b7;stop-opacity:0.45" />
+                  <stop offset="60%" style="stop-color:#e830b7;stop-opacity:0.15" />
+                  <stop offset="100%" style="stop-color:#931f74;stop-opacity:0.05" />
+                </linearGradient>
+              </defs>
+              <!-- Head -->
+              <ellipse cx="100" cy="48" rx="26" ry="30" fill="url(#ghostGrad)"/>
+              <!-- Neck -->
+              <path d="M78 78 Q100 68 122 78 L126 98 Q100 92 74 98 Z" fill="url(#ghostGrad)"/>
+              <!-- Torso -->
+              <path d="M38 105 Q100 85 162 105 L172 155 Q178 205 162 255 L152 295 L100 305 L48 295 L38 255 Q22 205 28 155 Z" fill="url(#ghostGrad)"/>
+              <!-- Abs definition -->
+              <path d="M85 165 Q100 160 115 165 M85 192 Q100 187 115 192 M85 219 Q100 214 115 219" stroke="#e830b7" stroke-width="1.5" fill="none" opacity="0.35" stroke-linecap="round"/>
+              <!-- Shoulders / Arms hint -->
+              <path d="M38 110 Q15 145 28 195 M162 110 Q185 145 172 195" stroke="url(#ghostGrad)" stroke-width="18" fill="none" stroke-linecap="round" opacity="0.5"/>
+            </svg>
+            <div class="absolute -bottom-1 left-1/2 -translate-x-1/2 text-muted text-[10px] font-medium tracking-wider uppercase whitespace-nowrap bg-background/60 backdrop-blur-sm px-2 py-0.5 rounded-full border border-white/5">Previous • Oct 14</div>
+          </div>
+        </div>
+
+        <!-- Ghost Badge -->
+        <div class="absolute top-4 left-4 bg-black/40 backdrop-blur-md rounded-full px-3 py-1.5 flex items-center gap-1.5 border border-white/10">
+          <svg class="w-3.5 h-3.5 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 10h.01"/><path d="M15 10h.01"/><path d="M12 2a8 8 0 0 0-8 8v12l3-3 2.5 2.5L12 19l2.5 2.5L17 19l3 3V10a8 8 0 0 0-8-8z"/></svg>
+          <span class="text-[10px] text-text font-semibold">Ghost On</span>
+        </div>
+      </div>
+
+      <!-- Ghost Opacity Slider -->
+      <div class="px-7 pb-5">
+        <div class="flex justify-between items-center mb-2">
+          <span class="text-muted text-xs font-medium">Ghost Opacity</span>
+          <span class="text-primary text-xs font-bold">40%</span>
+        </div>
+        <div class="h-1.5 bg-surface rounded-full relative">
+          <div class="absolute left-0 top-0 h-full w-[40%] bg-primary rounded-full"></div>
+          <div class="absolute left-[40%] top-1/2 -translate-y-1/2 -translate-x-1/2 w-5 h-5 bg-primary rounded-full border-[3px] border-background shadow-[0_0_10px_rgba(232,48,183,0.5)]"></div>
+        </div>
+      </div>
+
+      <!-- Capture Button -->
+      <div class="flex justify-center pb-5">
+        <button class="relative w-[72px] h-[72px] rounded-full bg-text/10 border-2 border-text/30 flex items-center justify-center active:scale-90 transition-transform shadow-[0_0_25px_rgba(232,48,183,0.35)]">
+          <div class="w-[60px] h-[60px] rounded-full bg-text flex items-center justify-center">
+            <div class="w-[52px] h-[52px] rounded-full bg-primary flex items-center justify-center">
+              <div class="w-3.5 h-3.5 rounded-sm bg-text/30"></div>
+            </div>
+          </div>
+        </button>
+      </div>
+
+      <!-- Bottom Tab Bar -->
+      <div class="bg-background/95 backdrop-blur-lg border-t border-white/5 px-10 pt-3 pb-8 flex justify-between items-center z-50">
+        <!-- History -->
+        <button class="flex flex-col items-center gap-1 text-muted hover:text-text transition-colors">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+          <span class="text-[10px] font-medium">History</span>
+        </button>
+
+        <!-- Frame (Active) -->
+        <button class="flex flex-col items-center gap-1 text-primary">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
+          <span class="text-[10px] font-semibold">Frame</span>
+        </button>
+
+        <!-- Settings -->
+        <button class="flex flex-col items-center gap-1 text-muted hover:text-text transition-colors">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.47a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+          <span class="text-[10px] font-medium">Settings</span>
+        </button>
+      </div>
+
+    </div>
+
+    <div class="home-indicator"></div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+name: EAS Build
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - release/*
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - name: Setup EAS
+        uses: expo/expo-github-action@v8
+        with:
+          eas-version: latest
+          token: ${{ secrets.EAS_ACCESS_TOKEN }}
+      - run: npm ci
+      - name: Build for iOS
+        if: github.ref == 'refs/heads/release/ios'
+        run: eas build --platform ios --non-interactive
+      - name: Build for Android
+        if: github.ref == 'refs/heads/release/android'
+        run: eas build --platform android --non-interactive
+      - name: Build for both
+        if: github.ref == 'refs/heads/release/production'
+        run: eas build --platform all --non-interactive
